@@ -10,7 +10,12 @@ var config= {
     module: {
         rules: loaders()
     },
-    plugins: [new webpack.ProgressPlugin()]
+    plugins: [
+        new webpack.ProgressPlugin(),
+        new webpack.DefinePlugin({
+            'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        })
+    ]
 }
 
 
@@ -22,6 +27,8 @@ switch (process.env.NODE_ENV) {
     case 'prod':
         require('./env/prod')(config)
         break;
+    case 'test':
+        require('./env/test')(config)
     default:
         break;
 }

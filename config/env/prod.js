@@ -6,7 +6,7 @@ var {resolveApp} = require('../helpers')
 module.exports= function(config){
     console.log(chalk.red('environment ==> production'))
 
-    config.entry= resolveApp('lib/index.js')
+    config.entry= ['babel-polyfill',resolveApp('lib/index.js')],
     config.output= {
         filename: 'vue-setstate.min.js',
         path: resolveApp('dist'),

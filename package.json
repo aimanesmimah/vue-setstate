@@ -6,14 +6,19 @@
   "scripts": {
     "dev": "export NODE_ENV=dev && webpack-dev-server --inline --hot --config ./config/webpack.config.js",
     "start": "npm run dev",
-    "release": "export NODE_ENV=prod && webpack --hide-modules --config ./config/webpack.config.js ",
+    "build": "export NODE_ENV=prod && webpack --hide-modules --config ./config/webpack.config.js",
+    "release": "export NODE_RELEASE=true && npm-run-all -l --sequential test build",
     "test": "export NODE_ENV=test && karma start"
   },
-  "author": "froggy02",
+  "author": {
+    "name": "ayman smimah",
+    "email": "aymansmimah@gmail.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-es2016": "^6.24.1",
@@ -27,6 +32,7 @@
     "karma-mocha": "^1.3.0",
     "karma-mocha-reporter": "^2.2.5",
     "karma-webpack": "^4.0.2",
+    "npm-run-all": "^4.1.5",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "vue": "^2.5.21",
     "vue-loader": "^15.5.0",
@@ -37,7 +43,9 @@
     "webpack-cli": "^3.2.0",
     "webpack-dev-server": "^3.1.14"
   },
-  "dependencies": {},
+  "dependencies": {
+    "rxjs": "^6.5.2"
+  },
   "keywords": [
     "setState",
     "set-state",
