@@ -14,20 +14,44 @@
 <body>
     <div id="app">
         <h1>Vue.js set state</h1>
-        <p>{{type}}</p>
+        <p>{{data}}</p>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.21/vue.min.js" ></script>
     <script src="./vue-setstate.min.js" ></script>
-    <script>
+    <script type="text/javascript" >
         var vue= new Vue({
             el: '#app',
             data: {
-                type: 'Hello world'
+                data: 'Hello world'
             },
             mounted:function(){
+
                 setTimeout(()=>{
-                    this.$setState({type: `What's up`})
+                    const self= this
+                    this.$setState(()=> Promise.resolve({ data: `What's up` }),function(prev,current){
+                        console.log(prev,current)
+
+                        self.$setState(()=> new Promise(resolve=>{
+                            setTimeout(()=> resolve({ data: `it feels alright` }) ,3000)
+                        }),function(prev,current){
+                            console.log(prev,current)
+                            self.$setState(self.fetchAPI,self.fetchAPICallback)
+                        })
+                    })
+
+
                 },2000)
+            },
+            methods: {
+                async fetchAPI(state){
+                    var res= await Promise.resolve('data')
+                    return res ? {
+                        data: res 
+                    } : null
+                },
+                fetchAPICallback(prevState,currentState){
+                    console.log(prevState,currentState)
+                }
             }
         })
     </script>
