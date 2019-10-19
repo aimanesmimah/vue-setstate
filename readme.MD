@@ -1,12 +1,14 @@
-The main idea behind the creation of this package is to leverage react setState function to update vue js components state. Thus using object payloads or mutator functions for that sake instead of writing reasignement expressions that could require many lines of code especially when you have to update many state property at once.
-Also it provides some extra utilities like using async mutators and a callback function that executes after the dom is re-rendered and take the previous & current state as arguments.
+   The main idea behind the creation of this package is to leverage react setState function to update vue js components state. Thus using object payloads or mutator functions for that sake instead of writing reasignement expressions that could require many lines of code especially when you have to update many state property at once.
+   
+   Also it provides some extra utilities like using async mutators and a callback function that executes after the dom is 
+re-rendered and take the previous & current state as arguments.
 
 
 The distribution file falls inside the dist folder under the name `vue-setstate.min.js`  ✌
 
 ## USAGE
 
-* usage in a dependency system project (spa) that requires a build tool like webpack
+* __usage in a dependency system project (spa) that requires a build tool like webpack__
 
 ```javascript
 // app.js 
@@ -32,7 +34,7 @@ var vue= new Vue({
 
 then you can call the `$setState` function inside your app components on `this` object
 
-* usage within a project where vue.js is added incremently to templates
+* __usage within a project where vue.js is added incremently to templates__
 
 ```html
 <!DOCTYPE html>
