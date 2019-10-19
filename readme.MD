@@ -120,8 +120,8 @@ this.$setState(
 
 ```bash
 npm start # starting exemple in dev mode
-npm build # building library
+npm run build # building library
 npm test # running test suites using karma and mocha for terminal reporting 
-npm release # added for CI tasks 
+npm run release # added for CI tasks 
 ```
 
