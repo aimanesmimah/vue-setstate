@@ -5,7 +5,7 @@ var {resolveApp}= require('../helpers')
 module.exports= function(config){
     console.log(chalk.blue('environment ==> development'))
 
-    config.entry= ['babel-polyfill',resolveApp('App.js')]
+    config.entry= [resolveApp('App.js')]
     config.output= {
         filename: 'bundle.js',
         path: resolveApp('build')
