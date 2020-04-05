@@ -109,7 +109,9 @@ this.$setState(fetchAPI)
 this.$setState(
     prevState=> new Promise(resolve=> {
         setTimeout(()=>{
-            resolve('data')
+            resolve({
+                data: 'data'
+            })
         },3000)
     })
 )
