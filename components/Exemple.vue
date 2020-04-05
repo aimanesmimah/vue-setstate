@@ -10,7 +10,7 @@
                         :item="item" :index="index" @removeCard="removeCard(index)" />
                 </section>
           </section>
-          <button class="github-link" v-on:click="redirectionClick" >
+          <button v-if="showGithub" class="github-link" v-on:click="redirectionClick" >
                     <img src="assets/Octocat.png" alt="" />
                     <span>View on GITHUB</span>
             </button>
@@ -48,7 +48,7 @@ export default {
                   this.$setState({loading: false})
                     try {
                         var rows= JSON.parse(res.bodyText)
-                        this.$setState({cards: rows.results , cardsCount: rows.info.results },function(prevState,current){
+                        this.$setState( prevState => ({cards: rows.results , cardsCount: rows.info.results }),function(prevState,current){
                             console.log(prevState)
                             console.log(current)
                         })
@@ -70,11 +70,8 @@ export default {
             },301)
         },
         redirectionClick(){
-            window.location.href= 'https://github.com/froggy02/vue-setstate#readme'
-        },
-        vueDidUpdate(){
-            console.log('vue did updated')
-        },
+            window.location.href= 'https://github.com/cloudstrife9494/vue-setstate#readme'
+        }
     },
 }
 </script>
